@@ -19,7 +19,7 @@ const Register = () => {
         <Gap height={18} />
         <Input label='Password' placeholder="Password" />
         <Gap height={50} />
-        <Button title='Simpan' />
+        <Button title='Register' />
         <Gap height={18} />
         <Link title='Kembali Ke Login' />
       </div>

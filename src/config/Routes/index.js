@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Login, Register, Home } from '../../pages';
+import { Login, Register, MainApp } from '../../pages';
 
 
 const Kontol = () => {
@@ -8,7 +8,7 @@ const Kontol = () => {
             <Routes>
                 <Route path="/login" element={<Login />} exact />
                 <Route path="/register" element={<Register />} exact />
-                <Route path="/" element={<Home />} exact />
+                <Route path="/" element={<MainApp />} exact />
             </Routes>
         </Router>
     )
