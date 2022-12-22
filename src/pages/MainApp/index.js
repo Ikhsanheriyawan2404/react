@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import { Header, Footer } from '../../components'
 import CreateBlog from '../CreateBlog'
 import DetailBlog from '../DetailBlog'
@@ -13,17 +13,12 @@ const MainApp = () => {
             <Header />
         </div>
         <div className='content-wrapper'>
-            <CreateBlog />
-            <DetailBlog />
             <Home />
         </div>
-        {/* <Router>
             <Routes>
-            <Route path='/create-blog' element={<CreateBlog />} exact />
-            <Route path='/detail-blog' element={<DetailBlog />} exact />
-            <Route path='/' element={<Home />} exact />
+              <Route path='/create-blog' element={<CreateBlog />} exact />
+              <Route path='/detail-blog' element={<DetailBlog />} exact />
             </Routes>
-        </Router> */}
         <Footer />
     </div>
   )

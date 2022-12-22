@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Login, Register, MainApp } from '../../pages';
-
+import CreateBlog from '../../pages/CreateBlog';
+import DetailBlog from '../../pages/DetailBlog';
 
 const Kontol = () => {
     return (
@@ -9,6 +10,8 @@ const Kontol = () => {
                 <Route path="/login" element={<Login />} exact />
                 <Route path="/register" element={<Register />} exact />
                 <Route path="/" element={<MainApp />} exact />
+                <Route path='/create-blog' element={<CreateBlog />} exact />
+                <Route path='/detail-blog' element={<DetailBlog />} exact />
             </Routes>
         </Router>
     )
