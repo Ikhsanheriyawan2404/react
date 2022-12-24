@@ -12,7 +12,6 @@ const DetailBlog = (props) => {
     axios.get(`http://localhost:5000/blogs/${id}`)
       .then(res => {
         setData(res.data.data[0])
-        console.log(res.data.data[0])
       })
       .catch(err => {
         console.log(err)

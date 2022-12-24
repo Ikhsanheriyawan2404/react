@@ -12,7 +12,7 @@ const Kontol = () => {
                 <Route path="/login" element={<Login />} exact />
                 <Route path="/register" element={<Register />} exact />
                 <Route path="/" element={<MainApp />} exact />
-                <Route path='/create-blog' element={<CreateBlog />} exact />
+                <Route path='/create-blog/:id?' element={<CreateBlog />} exact />
                 <Route path='/detail-blog/:id' element={<DetailBlog />} />
             </Routes>
         </Router>

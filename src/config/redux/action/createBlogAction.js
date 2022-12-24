@@ -25,4 +25,23 @@ export const postToAPI = (form) => {
     .catch(err => {
       alert(err)
     })
+}
+
+export const updateToAPI = (form, id) => {
+  const data = new FormData()
+  data.append('title', form.title)
+  data.append('body', form.body)
+  data.append('image', form.image)
+
+  axios.put(`http://localhost:5000/blogs/${id}`, data, {
+    headers: {
+      'content-type': 'multipart/form-data'
+    }
+  })
+  .then(res => {
+    alert(res.data.message)
+  })
+  .catch(err => {
+    alert(err)
+  })
 } 
