@@ -1,20 +1,49 @@
-import React from 'react'
-import { RegisterBg } from '../../assets'
+import React, { useEffect, useState } from 'react'
 import './detailblog.scss'
 import { Button } from '../../components'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation, useParams } from 'react-router-dom'
+import axios from 'axios'
 
-const DetailBlog = () => {
+const DetailBlog = (props) => {
+  const [data, setData] = useState({})
+  const { id } = useParams()
+  useEffect(() => {
+    // const id = props.match.params.id
+    axios.get(`http://localhost:5000/blogs/${id}`)
+      .then(res => {
+        setData(res.data.data[0])
+        console.log(res.data.data[0])
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }, [id])
   const navigate = useNavigate()
-  return (
-    <div className='detail-blog-wrapper'>
-      <img src={RegisterBg} alt='thumb' className='img-cover' />
-      <p className='blog-title'>Title</p>
-      <p className='blog-author'>Author - Date Post</p>
-      <p className='blog-body'>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
-      <Button title='Back' onClick={() => navigate('/')} />
-    </div>
-  )
+  if (data.author) {
+    return (
+      <div className='detail-blog-wrapper'>
+        <img src={`http://localhost:5000/${data.image}`} alt='thumb' className='img-cover' />
+        <p className='blog-title'>{data.title}</p>
+        <p className='blog-author'>{data.title} - {data.created_at}</p>
+        <p className='blog-body'>{data.body}</p>
+        <Button title='Back' onClick={() => navigate('/')} />
+      </div>
+    )
+  }
+  return <p>Loading . . . . . . . .</p>
 }
 
-export default DetailBlog
+const withRouter = WrappedComponent => props => {
+  const params = useParams();
+  // etc... other react-router-dom v6 hooks
+
+  return (
+    <WrappedComponent
+      {...props}
+      params={params}
+      // etc...
+    />
+  );
+};
+
+export default withRouter(DetailBlog)

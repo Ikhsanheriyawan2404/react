@@ -4,6 +4,7 @@ import { Login, Register, MainApp } from '../../pages';
 import CreateBlog from '../../pages/CreateBlog';
 import DetailBlog from '../../pages/DetailBlog';
 
+
 const Kontol = () => {
     return (
         <Router>
@@ -12,7 +13,7 @@ const Kontol = () => {
                 <Route path="/register" element={<Register />} exact />
                 <Route path="/" element={<MainApp />} exact />
                 <Route path='/create-blog' element={<CreateBlog />} exact />
-                <Route path='/detail-blog' element={<DetailBlog />} exact />
+                <Route path='/detail-blog/:id' element={<DetailBlog />} />
             </Routes>
         </Router>
     )

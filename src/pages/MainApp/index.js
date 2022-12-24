@@ -15,10 +15,10 @@ const MainApp = () => {
         <div className='content-wrapper'>
             <Home />
         </div>
-            <Routes>
+            {/* <Routes>
               <Route path='/create-blog' element={<CreateBlog />} exact />
-              <Route path='/detail-blog' element={<DetailBlog />} exact />
-            </Routes>
+              <Route path='/detail-blog/:id' element={<DetailBlog />} exact />
+            </Routes> */}
         <Footer />
     </div>
   )

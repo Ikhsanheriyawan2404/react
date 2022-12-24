@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 
 const BlogItem = (props) => {
   const navigate = useNavigate()
-  const {image, title, body, name, date} = props
+  const {image, title, body, name, date, _id} = props
   return (
     <div className='blog-item'>
       <img className='image-thumb' src={image} alt='post' />
@@ -13,7 +13,7 @@ const BlogItem = (props) => {
         <p className='title'>{ title }</p>
         <p className='author'>{ name } - {date}</p>
         <p className='body'>{ body }</p>
-        <Button title='View Details' onClick={() => navigate('/detail-blog')} />
+        <Button title='View Details' onClick={() => navigate(`/detail-blog/${_id}`)} />
       </div>
 
     </div>

@@ -10,8 +10,6 @@ const Home = () => {
   const {dataBlog, page} = useSelector(state => state.homeReducer);
   const dispatch = useDispatch()
 
-  console.log(page)
-
   useEffect(() => {
     dispatch(setDataBlog(counter))
   }, [counter, dispatch])
@@ -20,12 +18,10 @@ const Home = () => {
 
   const previous = () => {
     setCounter(counter <= 1 ? 1 : counter - 1)
-    console.log(counter)
   }
   
   const next = () => {
     setCounter(counter === page.totalPage ? page.totalPage : counter + 1)
-    console.log(counter)
   }
 
   return (
@@ -39,11 +35,12 @@ const Home = () => {
           return (
             <BlogItem
               key={blog._id}
-              image={`http://localhost:3002/${blog.image}`}
+              image={`http://localhost:5000/${blog.image}`}
               title={blog.title}
               body={blog.body} 
               name={blog.author.name}
               date={blog.created_at}
+              _id={blog._id}
             />
           )
         })}
